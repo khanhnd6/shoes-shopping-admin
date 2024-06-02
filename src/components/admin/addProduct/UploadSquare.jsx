@@ -45,7 +45,7 @@ const UploadSquare = ({ text, id, width, name, handleImageChange, src , handleRe
           </>}
         {(src || img) && !loading && 
           <div className={`${width} aspect-square relative overflow-hidden`}>
-            <img className='w-full h-full object-cover object-center' src={!!src ? preview : `${process.env.REACT_APP_API_ENDPOINT}${img}`} alt="" />
+            <img className='w-full h-full object-cover object-center' src={!!src ? preview : `${img}`} alt="" />
             <button className='absolute top-0 right-1 z-10' 
               onClick={(e)=>{ 
                 handleRemoveImage(e, !!src ? src : img)

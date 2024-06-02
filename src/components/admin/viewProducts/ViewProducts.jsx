@@ -60,7 +60,7 @@ const ViewProducts = () => {
       console.log("dat: ", dat, res)
 
       dat.forEach(element => {
-        element.images = element.images == null ? [] : element.images.split(";")
+        element.images = element.images == null ? [] : element.images.split(",")
       });
 
       setProducts(dat)
@@ -189,7 +189,7 @@ const ViewProducts = () => {
       console.log("dat: ", dat, res)
 
       dat.forEach(element => {
-        element.images = element.images == null ? [] : element.images.split(";")
+        element.images = element.images == null ? [] : element.images.split(",")
       });
 
       setProducts(dat)
@@ -349,7 +349,7 @@ const ViewProducts = () => {
                               <img
                                 onClick={() => navigate(`/san-pham/${product.id}`)}
                                 className='col-span-3 rounded-[4px] h-[75px] w-full object-cover cursor-pointer'
-                                src={ product.images.length == 0 ? "": process.env.REACT_APP_API_ENDPOINT+product.images[0]} alt="" />
+                                src={ product.images.length == 0 ? "": product.images[0]} alt="" />
                               <div className="col-span-4 flex flex-col mt-4">
                                 <span
                                   onClick={() => navigate(`/san-pham/${product.id}`)}

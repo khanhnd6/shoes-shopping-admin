@@ -263,7 +263,7 @@ const ViewOrders = () => {
                                 </td>
 
                                 <td className='col-span-1 flex items-center py-2'>
-                                  <p className={`text-[12px] font-medium`}>{order.total.toLocaleString()}</p>
+                                  <p className={`text-[12px] font-medium`}>{order?.total?.toLocaleString()}</p>
                                 </td>
                                 
 

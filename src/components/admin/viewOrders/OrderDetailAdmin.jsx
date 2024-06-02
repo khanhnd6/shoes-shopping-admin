@@ -62,7 +62,7 @@ const OrderDetailAdmin = () => {
         items.forEach(el => {
           el.images = []
           if(!!el.path)
-            el.images = el.path.split(";")
+            el.images = el.path.split(",")
         });
         console.log("res.data", items)
         setOrderItems(items)
@@ -71,6 +71,8 @@ const OrderDetailAdmin = () => {
         toast.error("Error: "+ err.message, {autoClose: 1000})
       })
   }
+
+  console.log(orderItems)
 
   const handleUpdateStatus = async (id, orderStatus) => {
     updateOrderStatus(order.id, order.customerId, orderStatus)

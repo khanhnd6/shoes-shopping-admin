@@ -66,7 +66,7 @@ const AddProduct = ({type}) => {
             let imgs = data[0].images
             console.log("imgs", imgs)
             if(!!imgs) 
-                images = imgs.split(";")
+                images = imgs.split(",")
 
             let lstSrc = []
             const fetchImage = async () => {
@@ -145,7 +145,7 @@ const AddProduct = ({type}) => {
       return;
     }
 
-    let paths = srcs.reduce((total, curr) => `${total};/uploads/${curr.name}`, "");
+    let paths = srcs.reduce((total, curr) => `${total},/uploads/${curr.name}`, "");
     const path2 = product.images.reduce((total, curr) => `${total};${curr}`, "");
 
     if(path2.length > 0){

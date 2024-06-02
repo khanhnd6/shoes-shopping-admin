@@ -43,6 +43,10 @@ const HomeAdmin = () => {
     getOrdersAction()
       .then(res => {
         setAllOrders(res.data)
+
+        let iTotal = res.data.reduce((total, curr) => total + (!curr.total ? 0 : curr.total), 0)
+        setTotal(iTotal)
+
       })
       .catch(err => {
         console.log(err)
@@ -127,8 +131,7 @@ const HomeAdmin = () => {
               </div>
             )}
             <div className="flex flex-col items-center mt-6">
-              <p className="text-[24px] font-medium">0</p> 
-              {/* {solvePrice(total)} */}
+                {solvePrice(total)}
               <span className="text-[14px] text-[#666] tracking-wider">Doanh thu (VNĐ)</span>
             </div>
           </div>
