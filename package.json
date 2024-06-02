@@ -15,6 +15,7 @@
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "firebase": "^9.18.0",
+    "highcharts-react-official": "^3.2.1",
     "mathsass": "^0.11.0",
     "notiflix": "^3.2.6",
     "path": "^0.12.7",

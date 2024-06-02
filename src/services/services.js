@@ -464,5 +464,43 @@ const updateOrderStatus = async (orderId, customerId, orderStatus = null, paymen
 
 }
 
+const getReportAction = async (fromdate, todate, type) => {
 
-export {getUserAction, getProductAction, getCategoryAction, getSupplierAction, getOrdersAction, getCommonTypeAction, deleteProductAction, getOrderItemsAction, updateOrderStatus, addProductAction, getProductDetailsAction}
+    
+    let queryParams = new URLSearchParams({
+        fromdate, todate, type
+    });
+
+    queryParams = [...queryParams.entries()].reduce((acc, [key, value]) => {
+        if (value !== null && value !== 'null' && value !== undefined) {
+            acc.append(key, value);
+        }
+        return acc;
+    }, new URLSearchParams());
+
+
+
+    let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${process.env.REACT_APP_API_ENDPOINT}/report/get-report?${queryParams.toString()}`,
+        headers: { 
+            'Authorization': `Bearer ${localStorage.getItem("token")}`
+        }
+    };
+
+    return new Promise((res, rej) => {
+            
+        axios.request(config)
+        .then((response) => {
+            res(response)
+        })
+        .catch((error) => {
+            rej(error)
+        });
+    })
+
+}
+
+
+export {getUserAction, getProductAction, getCategoryAction, getSupplierAction, getOrdersAction, getCommonTypeAction, deleteProductAction, getOrderItemsAction, updateOrderStatus, addProductAction, getProductDetailsAction, getReportAction}
